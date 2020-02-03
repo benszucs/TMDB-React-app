@@ -10,24 +10,20 @@ body {
 a {
   text-decoration: none; }
 
-input, textarea {
+input,
+textarea {
   font-family: 'Lato', sans-serif;
   background-color: transparent; }
 
-.menu_nav_link.active {
-  background-color: #d9e021; }
-
-.main_nav_link.active {
-  background-color: transparent; }
-
-.search_inputs_cont .search_input:last-child {
-  margin-bottom: 10px; }
-  @media only screen and (max-width: 768px) {
-    .search_inputs_cont .search_input:last-child {
-      display: none; } }
-
-.mobile_only_input {
-  display: none; }
-  @media only screen and (max-width: 768px) {
-    .mobile_only_input {
-      display: block; } }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+ol,
+ul {
+  margin: 0;
+  padding: 0; }
