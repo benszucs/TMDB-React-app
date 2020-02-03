@@ -71,13 +71,17 @@ const ModalContainer = styled.div`
 const ModalInner = styled.section`
 	position: fixed;
 	background: white;
-	width: 80%;
-	min-height: 408px;
+	width: 90%;
+	max-width: 860px;
+	min-height: 318px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 10;
 	border-radius: 3px;
+	@media (min-width: 960px) {
+		min-height: 408px;
+	}
 `;
 
 const CloseIcon = styled.img`
@@ -93,7 +97,7 @@ const ButtonsContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
-	padding: 0 20px 20px 0;
+	padding: 0 20px 20px 20px;
 `;
 
 const Button = styled.button`
