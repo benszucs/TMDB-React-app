@@ -5,6 +5,7 @@ import SearchFilters from '../../components/searchfilter';
 import useDataApi from '../../fetcher';
 
 export default function Discover() {
+	// created useDataApi function in /fetcher.js which tkes a url as parameter to make relevant api call
 	const [{ data, isLoading, isError }, doFetch] = useDataApi(
 		'https://api.themoviedb.org/3/movie/popular?api_key=128a1d0ed1093ac629ba82e8345d9bfc&language=en-US&page=1',
 		{}

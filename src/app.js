@@ -7,8 +7,10 @@ import burgerIcon from './images/bars-solid.png';
 import Discover from './pages/discover';
 
 export default function App({ props }) {
+	// State of the sidebar 
 	const [isOpen, setIsOpen] = React.useState(true);
 
+	// Custom react hook to check if the sidebar should be visible or not depending on screen width
 	React.useEffect(() => {
 		const debouncedHandleResize = debounce(function handleResize() {
 			const width = window.innerWidth;
@@ -17,10 +19,13 @@ export default function App({ props }) {
 			if (width <= 960) setIsOpen(() => false);
 		}, 200);
 
+		// Call function to run on initial render
 		debouncedHandleResize();
+		// Add event listener to window to run function on resize
 		window.addEventListener('resize', debouncedHandleResize);
 
 		return _ => {
+			// Remove event handler on dismount
 			window.removeEventListener('resize', debouncedHandleResize);
 		};
 	}, []);
@@ -43,6 +48,7 @@ export default function App({ props }) {
 	);
 }
 
+// Debounce funtion
 function debounce(fn, ms) {
 	let timer;
 	return _ => {
@@ -54,6 +60,7 @@ function debounce(fn, ms) {
 	};
 }
 
+// Styled components
 const ContentWrapper = styled.main`
 	padding-left: 0;
 	@media (min-width: 960px) {

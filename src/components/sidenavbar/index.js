@@ -9,37 +9,37 @@ import timesIcon from '../../images/times.png';
 export default function SideNavBar({ isOpen, setIsOpen }) {
 	return (
 		<SideNavBarCont className={isOpen && 'slide'}>
-			{/* Page Links */}
 			<Close src={timesIcon} alt="Burger Menu" onClick={() => setIsOpen(false)} />
-			<SideNavMainLink className="menu_nav_link main_nav_link" to="/" activeClassName="active" exact>
+			{/* Page Links */}
+			<SideNavMainLink to="/" activeClassName="active" exact>
 				Wesley
-				<NavIcon arrow>
+				<div arrow>
 					<img src={ArrowIcon} alt="Arrow Down" />
-				</NavIcon>
+				</div>
 			</SideNavMainLink>
-			<SideNavMainLink className="menu_nav_link" to="/discover" activeClassName="active">
+			<SideNavMainLink to="/discover" activeClassName="active">
 				Discover
-				<NavIcon search>
+				<div search>
 					<img src={SearchIcon} alt="Search Icon" />
-				</NavIcon>
+				</div>
 			</SideNavMainLink>
 			{/* Headers */}
 			<SideNavHeader>
 				<HeaderText>Watched</HeaderText>
 			</SideNavHeader>
-			<NavLink className="menu_nav_link" to="/watched/movies" activeClassName="active">
+			<NavLink to="/watched/movies" activeClassName="active">
 				Movies
 			</NavLink>
-			<NavLink className="menu_nav_link" to="/watched/tv-shows" activeClassName="active">
+			<NavLink to="/watched/tv-shows" activeClassName="active">
 				TV Shows
 			</NavLink>
 			<SideNavHeader>
 				<HeaderText>Saved</HeaderText>
 			</SideNavHeader>
-			<NavLink className="menu_nav_link" to="/saved/movies" activeClassName="active">
+			<NavLink to="/saved/movies" activeClassName="active">
 				Movies
 			</NavLink>
-			<NavLink className="menu_nav_link" to="/saved/tv-shows" activeClassName="active">
+			<NavLink to="/saved/tv-shows" activeClassName="active">
 				TV Shows
 			</NavLink>
 		</SideNavBarCont>
@@ -75,8 +75,6 @@ const SideNavMainLink = styled(Link)`
 		background-color: ${colors.primaryColor};
 	}
 `;
-
-const NavIcon = styled.div``;
 
 const SideNavHeader = styled.div`
 	padding: 25px 0 0 35px;

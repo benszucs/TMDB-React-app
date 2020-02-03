@@ -22,16 +22,20 @@ export default class SearchFilters extends React.Component {
 		this.setState({ showFilters: !this.state.showFilters });
 	};
 	componentDidUpdate = prevState => {
+		// Fetch the popular list if the input fields are empty
 		if (prevState.query !== this.state.query && this.state.query === '') {
 			this.props.doFetch(
 				'https://api.themoviedb.org/3/movie/popular?api_key=128a1d0ed1093ac629ba82e8345d9bfc&language=en-US&page=1'
 			);
 		}
+		// Fetch the movie with the relevant query that is updated on each keystroke
+		// TODO: how to limit calls -> debounce?
 		if (prevState.query !== this.state.query && this.state.query !== '') {
 			this.props.doFetch(
 				`https://api.themoviedb.org/3/search/movie?api_key=128a1d0ed1093ac629ba82e8345d9bfc&language=en-US&query=${this.state.query}&page=1&include_adult=false`
 			);
 		}
+		// Fetch the movie including the year parameter, if query is empty use a 'space' so call doesn't fail
 		if (prevState.year !== this.state.year && this.state.year !== '') {
 			this.props.doFetch(
 				`https://api.themoviedb.org/3/search/movie?api_key=128a1d0ed1093ac629ba82e8345d9bfc&language=en-US&query=${this
@@ -39,6 +43,8 @@ export default class SearchFilters extends React.Component {
 			);
 		}
 	};
+	// Different approach to checking the width of the window 
+	// update show filters accordingly...
 	updateDimensions = () => {
 		if (window.innerWidth >= 1240) this.setState({ showFilters: true });
 		else this.setState({ showFilters: false });

@@ -35,7 +35,6 @@ export default class ExpandableFilters extends React.Component {
 		});
 	};
 
-	// You need to create your own checkbox component with a custom checkmark
 	render() {
 		const { genres, ratings, languages } = this.props;
 		const { showIndex, checked } = this.state;

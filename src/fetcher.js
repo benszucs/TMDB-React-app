@@ -101,6 +101,9 @@ const initState = {
 	],
 };
 
+
+// UseAPI fetcher to fetch the relevant data
+// TODO: better error handling
 const useDataApi = (initialUrl, initialData) => {
 	const [data, setData] = useState(initialData);
 	const [url, setUrl] = useState(initialUrl);
